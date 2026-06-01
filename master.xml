@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="MasterSuite">
+
+    <suite-files>
+    <suit-file path="./regression.xml"></suit-file>
+    <suit-file path="./smoke.xml"></suit-file>
+    </suite-files>
+    
+ 
+</suite> <!-- Suite -->
