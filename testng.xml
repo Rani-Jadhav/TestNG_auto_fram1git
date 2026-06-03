@@ -5,6 +5,7 @@
     <classes>
       <class name="TestCase.asserrtion_soft_hard"/>
     </classes>
+
     
   </test> <!-- Test -->
 </suite> <!-- Suite -->
