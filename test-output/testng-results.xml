@@ -1,37 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
-    <line>
-      <![CDATA[logs are onTestSuccess: assSoftHard]]>
-    </line>
-    <line>
-      <![CDATA[<a href="C:\Users\Dell\eclipse-workspace_TestNG_automation\TestNG_auto_framework\screenshots">Test Result</a>]]>
-    </line>
   </reporter-output>
-  <suite started-at="2026-05-30T07:18:21 IST" name="SmokeSuite" finished-at="2026-05-30T07:18:52 IST" duration-ms="31295">
+  <suite started-at="2026-08-02T06:29:12 IST" name="Default suite" finished-at="2026-08-02T06:29:41 IST" duration-ms="29059">
     <groups>
     </groups>
-    <test started-at="2026-05-30T07:18:21 IST" name="SmokeTest" finished-at="2026-05-30T07:18:52 IST" duration-ms="31295">
+    <test started-at="2026-08-02T06:29:12 IST" name="Default test" finished-at="2026-08-02T06:29:41 IST" duration-ms="29059">
       <class name="TestCase.asserrtion_soft_hard">
-        <test-method is-config="true" signature="setup()[pri:0, instance:TestCase.asserrtion_soft_hard@5f683daf]" started-at="2026-05-30T07:18:21 IST" name="setup" finished-at="2026-05-30T07:18:33 IST" duration-ms="11854" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:TestCase.asserrtion_soft_hard@5542c4ed]" started-at="2026-08-02T06:29:12 IST" name="setup" finished-at="2026-08-02T06:29:23 IST" duration-ms="11044" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="assSoftHard()[pri:0, instance:TestCase.asserrtion_soft_hard@5f683daf]" started-at="2026-05-30T07:18:33 IST" name="assSoftHard" finished-at="2026-05-30T07:18:51 IST" duration-ms="18570" status="PASS">
+        <test-method signature="assSoftHard()[pri:0, instance:TestCase.asserrtion_soft_hard@5542c4ed]" started-at="2026-08-02T06:29:23 IST" name="assSoftHard" finished-at="2026-08-02T06:29:40 IST" duration-ms="17567" status="PASS">
           <reporter-output>
-            <line>
-              <![CDATA[logs are onTestSuccess: assSoftHard]]>
-            </line>
-            <line>
-              <![CDATA[<a href="C:\Users\Dell\eclipse-workspace_TestNG_automation\TestNG_auto_framework\screenshots">Test Result</a>]]>
-            </line>
           </reporter-output>
         </test-method> <!-- assSoftHard -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:TestCase.asserrtion_soft_hard@5f683daf]" started-at="2026-05-30T07:18:52 IST" name="teardown" finished-at="2026-05-30T07:18:52 IST" duration-ms="348" status="PASS">
+        <test-method is-config="true" signature="teardown()[pri:0, instance:TestCase.asserrtion_soft_hard@5542c4ed]" started-at="2026-08-02T06:29:40 IST" name="teardown" finished-at="2026-08-02T06:29:41 IST" duration-ms="392" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- TestCase.asserrtion_soft_hard -->
-    </test> <!-- SmokeTest -->
-  </suite> <!-- SmokeSuite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>

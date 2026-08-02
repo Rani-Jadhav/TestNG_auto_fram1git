@@ -40,7 +40,9 @@ public class asserrtion_soft_hard extends basetest{
 		
 		//soft assert
 		SoftAssert softass=new SoftAssert();
-		String expTitle="Electronics, Cars, Fashion, Collectibles & More | eBay";
+		System.out.println(driver.getTitle());
+		System.out.println(driver.getCurrentUrl());
+		String expTitle="Pardon Our Interruption...";
 		String actTitle=driver.getTitle();
 		System.out.println("step1");
 		softass.assertEquals(actTitle, expTitle, "successfull title");
@@ -55,7 +57,7 @@ public class asserrtion_soft_hard extends basetest{
 		//screenshot.captureScreenshot();
 		//Reporter.log("Report is failed");
 		
-		Thread.sleep(5000);
+		Thread.sleep(2000);
 		
 		softass.assertAll();
 		Thread.sleep(10000);

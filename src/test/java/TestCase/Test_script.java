@@ -62,7 +62,7 @@ public class Test_script extends basetest
 //			{"ranipatan@gmail.com", "patange2212@223"},
 //			{"ranipatange4@gmail.com", "patange12@223"}
 //		};
-		
+//	}
 				
 }
 	
