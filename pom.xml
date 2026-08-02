@@ -6,6 +6,8 @@
 	<artifactId>TestNG_auto_framework</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	 
+	
 	<dependencies>
 		<!-- Source:
 		https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
@@ -133,7 +135,8 @@
      <configuration>
      <suiteXmlFiles>
      <suiteXmlFile>testng.xml</suiteXmlFile>
-     
+
+		 
      </suiteXmlFiles>
      
      </configuration>
