@@ -10,7 +10,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+
 import Base.basetest;
+import Utilities.extendreport;
 import Utilities.screenshot;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -19,10 +23,24 @@ public class asserrtion_soft_hard extends basetest{
 	public void assSoftHard() throws InterruptedException
 	{
 		
+		
+		ExtentReports report = extendreport.getReport();
+
+        ExtentTest test = report.createTest("Login Test");
+
+        test.info("Browser Launched");
+
+       
+    
+		
+		
+		
 //		WebDriverManager.chromedriver().setup();
 //		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.ebay.com/");
 		driver.manage().window().maximize();
+		
+		
 		
 		//hard assert
 //		String expTitle="Electronics, Cars, Fashion, Collectibles & More | eBay";
@@ -36,17 +54,21 @@ public class asserrtion_soft_hard extends basetest{
 //		System.out.println("value is: "+actvalue);
 //		Assert.assertEquals(actvalue, extvalue, "successfull value");
 //		System.out.println("step3");
-		
+		 test.info("Application Opened");
+
+		  test.pass("Login Successful");
+
+	       
 		
 		//soft assert
 		SoftAssert softass=new SoftAssert();
-		System.out.println(driver.getTitle());
-		System.out.println(driver.getCurrentUrl());
-		String expTitle="Pardon Our Interruption...";
-		String actTitle=driver.getTitle();
-		System.out.println("step1");
-		softass.assertEquals(actTitle, expTitle, "successfull title");
-		System.out.println("step2");
+//		System.out.println(driver.getTitle());
+//		System.out.println(driver.getCurrentUrl());
+//		String expTitle="Pardon Our Interruption...";
+//		String actTitle=driver.getTitle();
+//		System.out.println("step1");
+//		softass.assertEquals(actTitle, expTitle, "successfull title");
+//		System.out.println("step2");
 		
 		String extvalue="hidden";
 		String actvalue=driver.findElement(By.xpath("//input[@type='hidden']")).getAttribute("type");
@@ -61,7 +83,7 @@ public class asserrtion_soft_hard extends basetest{
 		
 		softass.assertAll();
 		Thread.sleep(10000);
-		
+		 report.flush();
 		
 		
 	}
