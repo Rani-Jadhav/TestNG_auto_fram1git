@@ -25,6 +25,7 @@ public class basetest
 	 public static Properties loc=new Properties();
 	 public static FileReader fr;
 	 public static FileReader fr1;
+	 public static String env; 
 	 
 	//paramert
 	 @BeforeMethod
@@ -93,6 +94,10 @@ public class basetest
 		  {
 		      WebDriverManager.chromedriver().setup();
 		      driver = new ChromeDriver();
+		      System.out.println("Environment : " + env);
+		      System.out.println("Browser : " + browser);
+		      System.out.println("URL : " + prop.getProperty("testURL"));
+		      
 		      driver.get(prop.getProperty("testURL"));
 		      driver.manage().window().maximize();
 		  }

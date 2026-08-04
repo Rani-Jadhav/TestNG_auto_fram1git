@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Reporter;
 import org.testng.Assert;
@@ -71,7 +72,11 @@ public class asserrtion_soft_hard extends basetest{
 //		System.out.println("step2");
 		
 		String extvalue="hidden";
-		String actvalue=driver.findElement(By.xpath("//input[@type='hidden']")).getAttribute("type");
+		//String actvalue=driver.findElement(By.xpath("//input[@type='hidden']")).getAttribute("type");
+		
+		WebElement ele =driver.findElement(By.xpath("//input[@type='hidden']"));
+        String actvalue = ele.getAttribute("type");
+				
 		System.out.println("value is: "+actvalue);
 		softass.assertEquals(actvalue, extvalue, "successfull value");
 		System.out.println("step3");
