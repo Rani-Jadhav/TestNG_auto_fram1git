@@ -41,21 +41,54 @@ public class basetest
 			  loc.load(fr1);
 		  }
 		  Thread.sleep(5000);
-		  if(prop.getProperty("browser").equalsIgnoreCase("chrome"))
-		  //if(browser.equalsIgnoreCase("chrome")) //its for @parameter annotation
+//		  if(prop.getProperty("browser").equalsIgnoreCase("chrome"))
+//		  //if(browser.equalsIgnoreCase("chrome")) //its for @parameter annotation
+//		  {
+//			  WebDriverManager.chromedriver().setup();
+//			  driver=new ChromeDriver();
+//			  driver.get(prop.getProperty("testURL"));
+//			    driver.manage().window().maximize();
+//		  }
+//		  else 
+//			  if(prop.getProperty("browser").equalsIgnoreCase("edge"))  //if(browser.equalsIgnoreCase("edge")) //its for @parameter annotation
+//		  {
+//			  WebDriverManager.edgedriver().setup();
+//			  driver=new EdgeDriver();
+//			  driver.get(prop.getProperty("testURL"));
+//			    driver.manage().window().maximize();
+//		  }
+		// new code added for jenkis execution  
+		  String browser = System.getProperty("browser");
+
+		  if(browser == null)
 		  {
-			  WebDriverManager.chromedriver().setup();
-			  driver=new ChromeDriver();
-			  driver.get(prop.getProperty("testURL"));
-			    driver.manage().window().maximize();
+		      browser = prop.getProperty("browser");
 		  }
-		  else 
-			  if(prop.getProperty("browser").equalsIgnoreCase("edge"))  //if(browser.equalsIgnoreCase("edge")) //its for @parameter annotation
+
+		  if(browser.equalsIgnoreCase("chrome"))
 		  {
-			  WebDriverManager.edgedriver().setup();
-			  driver=new EdgeDriver();
-			  driver.get(prop.getProperty("testURL"));
-			    driver.manage().window().maximize();
+		      WebDriverManager.chromedriver().setup();
+		      driver = new ChromeDriver();
+		      driver.get(prop.getProperty("testURL"));
+		      driver.manage().window().maximize();
+		  }
+		  else if(browser.equalsIgnoreCase("edge"))
+		  {
+		      WebDriverManager.edgedriver().setup();
+		      driver = new EdgeDriver();
+		      driver.get(prop.getProperty("testURL"));
+		      driver.manage().window().maximize();
+		  }
+		  else if(browser.equalsIgnoreCase("firefox"))
+		  {
+		      WebDriverManager.firefoxdriver().setup();
+		      driver = new FirefoxDriver();
+		      driver.get(prop.getProperty("testURL"));
+		      driver.manage().window().maximize();
+		  }
+		  else
+		  {
+		      throw new RuntimeException("Invalid browser : " + browser);
 		  }
 		  
 		  

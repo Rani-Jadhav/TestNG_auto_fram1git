@@ -6,6 +6,7 @@ common\IListener.class
 TestCase\gropus.class
 Utilities\screenshot.class
 Utilities\readXLSdata.class
+Utilities\extendreport.class
 Utilities\waitutiles.class
 Utilities\readPropertiesfile.class
 TestCase\Test_script.class
