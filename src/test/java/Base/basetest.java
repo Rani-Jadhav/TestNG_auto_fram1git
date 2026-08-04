@@ -115,7 +115,7 @@ public class basetest
 		      throw new RuntimeException("Invalid browser : " + browser);
 		  }
 		  
-		 
+	  }
 	 
       //Thread.sleep(5000);
 		  
