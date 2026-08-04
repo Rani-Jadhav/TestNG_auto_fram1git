@@ -33,14 +33,38 @@ public class basetest
 	  {
 		  if(driver==null)
 		  {
-				//FileReader fr=new FileReader("C:\\Users\\Dell\\eclipse-workspace_TestNG_automation\\TestNG_auto_framework\\src\\test\\resources\\configfiles\\config.properties");
-			      FileReader fr=new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\configfiles\\config.properties");
-			      FileReader fr1=new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\configfiles\\locatores.properties");
+//				//FileReader fr=new FileReader("C:\\Users\\Dell\\eclipse-workspace_TestNG_automation\\TestNG_auto_framework\\src\\test\\resources\\configfiles\\config.properties");
+//			      FileReader fr=new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\configfiles\\config.properties");
+//			      FileReader fr1=new FileReader(System.getProperty("user.dir")+"\\src\\test\\resources\\configfiles\\locatores.properties");
+//
+//			  prop.load(fr);
+//			  loc.load(fr1);
+//		  }
+//		  Thread.sleep(5000);
+		  
+		  ///////////////////////for env for jenins////////////////////////////////////
+		  String env = System.getProperty("env");
 
-			  prop.load(fr);
-			  loc.load(fr1);
-		  }
-		  Thread.sleep(5000);
+          // Default Environment
+          if(env == null)
+          {
+              env = "qa";
+          }
+
+          // Loads config-qa.properties / config-dev.properties / config-uat.properties
+          fr = new FileReader(System.getProperty("user.dir")+ "\\src\\test\\resources\\configfiles\\config-"+ env + ".properties");
+
+          fr1 = new FileReader(System.getProperty("user.dir")+ "\\src\\test\\resources\\configfiles\\locatores.properties");
+
+          prop.load(fr);
+          loc.load(fr1);
+          
+        
+      }
+	
+		  
+///////////////////////for browser for jenins////////////////////////////////////
+		  
 //		  if(prop.getProperty("browser").equalsIgnoreCase("chrome"))
 //		  //if(browser.equalsIgnoreCase("chrome")) //its for @parameter annotation
 //		  {
@@ -58,9 +82,9 @@ public class basetest
 //			    driver.manage().window().maximize();
 //		  }
 		// new code added for jenkis execution  
-		  String browser = System.getProperty("browser");
+		  String browser = System.getProperty("browser");  //here we passing browser from anywhere like @paramerte or jenins so browser value is chrome 
 
-		  if(browser == null)
+		  if(browser == null)                               //it will get exute when we are not passing value form anywhre and exection started and there no browser passed so it takes default 
 		  {
 		      browser = prop.getProperty("browser");
 		  }
@@ -91,16 +115,25 @@ public class basetest
 		      throw new RuntimeException("Invalid browser : " + browser);
 		  }
 		  
+		 
+	 
+      //Thread.sleep(5000);
 		  
-	  }
+	  
 	  @AfterMethod
       public static void teardown()
       {
 		  if(driver!=null)
 		  {
+			  
+			  
 			  driver.quit();
 			  driver=null;
+			  
+			  
 		  }
+		  prop.clear();
+		  loc.clear();
 		 
           System.out.println("logout successfull");
 	  }
