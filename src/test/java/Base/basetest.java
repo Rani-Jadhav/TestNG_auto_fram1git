@@ -134,8 +134,10 @@ public class basetest
 //-------------------------------------------------------------------------
 		  if(browser.equalsIgnoreCase("chrome"))
 		  {
+			  
 		      WebDriverManager.chromedriver().setup();
 
+		      Thread.sleep(2000);
 		      ChromeOptions options = new ChromeOptions();
 
 		      if(executionMode.equalsIgnoreCase("headless"))
@@ -187,7 +189,7 @@ public class basetest
 //		  driver.manage().window().maximize();
 		  
 		  getDriver().get(prop.getProperty("testURL"));
-		  getDriver().manage().window().minimize();
+		  getDriver().manage().window().maximize();
 
 		  System.out.println("Environment : " + env);
 		  System.out.println("Browser : " + browser);
@@ -202,7 +204,7 @@ public class basetest
 	  }  
 	  
 	  @AfterMethod
-      public  void teardown()
+      public  void teardown() throws InterruptedException
       {
 //		  if(driver!=null)
 //		  {
@@ -212,6 +214,7 @@ public class basetest
 		  
 		  if(getDriver()!=null)
 		  {
+			  Thread.sleep(2000);
 		      getDriver().quit();
 		      tlDriver.remove();
 		  }

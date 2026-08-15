@@ -32,7 +32,7 @@ public class Test_script extends basetest
     WebElement email = waitutiles.waitForElement(getDriver(), By.id(loc.getProperty("email")));
    email.sendKeys(username);
    
-    
+   Thread.sleep(5000);
     WebElement nxt = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("nxt")));
     nxt.click();
     System.out.println("Current URL = " + getDriver().getCurrentUrl());
