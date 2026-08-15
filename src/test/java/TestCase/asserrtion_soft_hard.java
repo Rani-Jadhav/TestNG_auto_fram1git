@@ -31,15 +31,11 @@ public class asserrtion_soft_hard extends basetest{
 
         test.info("Browser Launched");
 
-       
-    
-		
-		
 		
 //		WebDriverManager.chromedriver().setup();
 //		WebDriver driver=new ChromeDriver();
-		driver.get("https://www.ebay.com/");
-		driver.manage().window().maximize();
+//		driver.get("https://www.ebay.com/");
+//		driver.manage().window().maximize();
 		
 		
 		
@@ -74,7 +70,7 @@ public class asserrtion_soft_hard extends basetest{
 		String extvalue="hidden";
 		//String actvalue=driver.findElement(By.xpath("//input[@type='hidden']")).getAttribute("type");
 		
-		WebElement ele =driver.findElement(By.xpath("//input[@type='hidden']"));
+		WebElement ele =getDriver() .findElement(By.xpath("//input[@type='hidden']"));
         String actvalue = ele.getAttribute("type");
 				
 		System.out.println("value is: "+actvalue);

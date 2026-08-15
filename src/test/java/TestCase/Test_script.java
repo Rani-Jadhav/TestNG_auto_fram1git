@@ -24,33 +24,38 @@ public class Test_script extends basetest
 	@Test (dataProviderClass = readXLSdata.class, dataProvider="testdata")
 	public  void Login(String username, String password) throws InterruptedException, IOException 
 	{
+		Thread.sleep(5000);		
+		getDriver().findElement(By.xpath(loc.getProperty("login_butn"))).click();
 		
-    driver.findElement(By.xpath(loc.getProperty("login_butn"))).click();
 
 
-    WebElement email = waitutiles.waitForElement(driver, By.id(loc.getProperty("email")));
+    WebElement email = waitutiles.waitForElement(getDriver(), By.id(loc.getProperty("email")));
    email.sendKeys(username);
-    
-    
-    WebElement nxt = waitutiles.waitForElement(driver,By.xpath(loc.getProperty("nxt")));
-    nxt.click();
-    
-    screenshot.captureScreenshot();
    
     
-    WebElement pas = waitutiles.waitForElement(driver,By.xpath(loc.getProperty("pass")));
+    WebElement nxt = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("nxt")));
+    nxt.click();
+    System.out.println("Current URL = " + getDriver().getCurrentUrl());
+    System.out.println("Page title = " + getDriver().getTitle());
+    System.out.println(
+    	    getDriver().getPageSource()
+    	        .contains("password"));
+    screenshot.captureScreenshot();
+    Thread.sleep(2000);
+    
+    WebElement pas = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("pass")));
     pas.sendKeys(password);
    
-    WebElement signin = waitutiles.waitForElement(driver,By.xpath(loc.getProperty("signin_but")));
+    WebElement signin = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("signin_but")));
     signin.click();
     
-    
-    WebElement linknxt = waitutiles.waitForElement(driver,By.xpath(loc.getProperty("link_btn")));
-    linknxt.click();
-    
- 
-    
     Thread.sleep(5000);
+
+//    System.out.println("After Login URL = " + getDriver().getCurrentUrl());
+//    System.out.println("After Login Title = " + getDriver().getTitle());
+//    WebElement linknxt = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("link_btn")));
+//    linknxt.click();
+   
 	}
 	
 	

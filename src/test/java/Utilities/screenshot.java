@@ -23,7 +23,7 @@ public class screenshot extends basetest {
         	Date currentdate=new Date();
         	String testName= currentdate.toString().replace("","").replace(":", "-");
 
-            TakesScreenshot ts = (TakesScreenshot) Base.basetest.driver;
+            TakesScreenshot ts = (TakesScreenshot) Base.basetest.getDriver();
             File src = ts.getScreenshotAs(OutputType.FILE);
             //File dest = new File("C:/Users/Dell/OneDrive/Pictures/Screenshots/" + testName + ".png");
             File dest = new File("C:/Users/Dell/eclipse-workspace_TestNG_automation/TestNG_auto_framework/screenshots/" + testName + ".png");

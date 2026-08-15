@@ -8,6 +8,7 @@ Utilities\screenshot.class
 Utilities\readXLSdata.class
 Utilities\extendreport.class
 Utilities\waitutiles.class
+oldFilesNotInUse\oldbasefile.class
 Utilities\readPropertiesfile.class
 TestCase\Test_script.class
 Base\basetest.class

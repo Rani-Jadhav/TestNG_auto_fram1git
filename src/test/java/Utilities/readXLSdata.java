@@ -13,6 +13,7 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.testng.annotations.DataProvider;
 
 
@@ -27,35 +28,64 @@ public class readXLSdata {
 
 	
 	@DataProvider (name="testdata")
-	public String[][] getdata(Method m) throws EncryptedDocumentException, IOException
-	{
-		String excelsheet=m.getName();
-		File f1=new File(System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\testdatssheet.xlsx");
-	    FileInputStream Fin= new FileInputStream(f1);
-	    Workbook w1= WorkbookFactory.create(Fin);
-	    Sheet sheetname=w1.getSheet(excelsheet);
-	    
-	    
-	    int totalrow= sheetname.getLastRowNum();
-	    Row rowcells=sheetname.getRow(0);
-	    int totalcall=rowcells.getLastCellNum();
-	    System.out.println(totalrow);
+	public Object[][] getdata() throws IOException {
+		
+	    //String path=System.getProperty("user.dir")+"\\testData\\tesxldata.xlsx";  //we can use tis or file class
+        File path=new File(System.getProperty("user.dir")+"\\src\\test\\resources\\TestData\\testdatssheet.xlsx"); //we can use this or String path stmt
+        FileInputStream fis = new FileInputStream(path);
+        XSSFWorkbook wb = new XSSFWorkbook(fis);
+
+        
+//        System.out.println(path.getAbsolutePath());
+//        System.out.println(path.exists());
+//        System.out.println("Total Sheets = " + wb.getNumberOfSheets());
+//
+//        for(int i=0; i<wb.getNumberOfSheets(); i++)
+//        {
+//            System.out.println("Sheet Name = " + wb.getSheetName(i));
+//        }
+//        
+//        //Sheet sheet = wb.getSheet("regSeetName");   // <-- must match Excel sheet tab exactly
+//        
+//        Sheet sheet = wb.getSheet("regSeetName");
+//
+//        if(sheet == null)
+//        {
+//            throw new RuntimeException("Sheet not found");
+//        }
+        Sheet sheet = wb.getSheet("excelsheet");
+        //Sheet sheet = wb.getSheetAt(0);
+        
+
+        int totalrow = sheet.getLastRowNum();
+        int totalcall = sheet.getRow(0).getLastCellNum();
+        System.out.println(totalrow);
 	    System.out.println(totalcall);
-	    
-	    
-	    DataFormatter form=new DataFormatter();
-	    String testdata[][]=new String[totalrow][totalcall];
-	    
-	    for(int i=1;i<=totalrow;i++)
-	    {
-	    	for(int j=0;j<totalcall;j++)
-		    {
-		    	testdata[i-1][j]=form.formatCellValue(sheetname.getRow(i).getCell(j));
-		    	System.out.println(testdata[i-1][j]);
-		    }
-	    }
-	    
-	return testdata;
+
+        Object[][] data = new Object[totalrow][totalcall];
+        DataFormatter df = new DataFormatter();  //DataFormatter is an Apache POI class used to read Excel cell values as displayed in Excel.
+                                                 //It converts cell data into String format safely.
+
+        for (int i = 1; i <= totalrow; i++) {
+            Row row = sheet.getRow(i);
+
+            for (int j = 0; j < totalcall; j++) {
+                data[i - 1][j] = df.formatCellValue(row.getCell(j));
+                System.out.println(data[i-1][j]);
+            }
+        }
+
+        wb.close();
+        fis.close();
+
+        return data;
+}
 	
-	}
+	
+	
+	
+	
+	
+	
+	
 }

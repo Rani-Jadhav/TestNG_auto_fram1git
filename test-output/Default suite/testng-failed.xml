@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestCase.asserrtion_soft_hard">
+      <class name="TestCase.Test_script">
         <methods>
           <include name="teardown"/>
-          <include name="assSoftHard"/>
           <include name="setup"/>
+          <include name="Login" invocation-numbers="0"/>
         </methods>
-      </class> <!-- TestCase.asserrtion_soft_hard -->
+      </class> <!-- TestCase.Test_script -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

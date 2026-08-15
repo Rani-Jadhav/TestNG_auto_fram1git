@@ -12,6 +12,10 @@ public class waitutiles {
 
 	public static WebElement waitForElement(WebDriver driver, By locator) {
 
+		
+	    System.out.println("Thread = " + Thread.currentThread().getId());
+	    System.out.println("Driver = " + driver);
+	    System.out.println("Locator = " + locator);
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));

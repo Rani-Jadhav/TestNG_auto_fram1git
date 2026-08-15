@@ -15,8 +15,7 @@ public class extendreport {
 
         if(extent == null) {
 
-            ExtentSparkReporter spark =
-                    new ExtentSparkReporter("test-output/ExtentReport.html");
+            ExtentSparkReporter spark =new ExtentSparkReporter("test-output/ExtentReport.html");
 
             spark.config().setDocumentTitle("Automation Report");
             spark.config().setReportName("Regression Suite");
