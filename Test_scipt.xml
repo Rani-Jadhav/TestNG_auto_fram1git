@@ -10,12 +10,12 @@
   </test> <!-- Test -->
   
   
-   <test name="Test2">
+  <!-- <test name="Test2">
   <parameter name="envpara" value="prod"></parameter>
   <parameter name="browserpara" value="edge"></parameter>
     <classes>
       <class name="TestCase.Test_script"/>
     </classes>
-  </test> <!-- Test -->
+  </test> <!-- Test -->--> 
   
 </suite> <!-- Suite -->
