@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
+    <line>
+      <![CDATA[logs are onTestSuccess: LogintoApplication]]>
+    </line>
+    <line>
+      <![CDATA[<a href="C:\Users\Dell\eclipse-workspace_TestNG_automation\TestNG_auto_framework\screenshots">Test Result</a>]]>
+    </line>
+    <line>
+      <![CDATA[logs are onTestSuccess: LogintoApplication]]>
+    </line>
+    <line>
+      <![CDATA[<a href="C:\Users\Dell\eclipse-workspace_TestNG_automation\TestNG_auto_framework\screenshots">Test Result</a>]]>
+    </line>
   </reporter-output>
-  <suite started-at="2026-08-15T12:39:17 IST" name="Suite" finished-at="2026-08-15T12:39:51 IST" duration-ms="33083">
+  <suite started-at="2026-08-16T08:53:02 IST" name="Suite" finished-at="2026-08-16T08:53:31 IST" duration-ms="29193">
     <groups>
     </groups>
-    <test started-at="2026-08-15T12:39:17 IST" name="Test1" finished-at="2026-08-15T12:39:51 IST" duration-ms="33083">
+    <test started-at="2026-08-16T08:53:02 IST" name="Test1" finished-at="2026-08-16T08:53:27 IST" duration-ms="25334">
       <class name="TestCase.Test_script">
-        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String)[pri:0, instance:TestCase.Test_script@5aa9e4eb]" started-at="2026-08-15T12:39:20 IST" name="setup" finished-at="2026-08-15T12:39:27 IST" duration-ms="7546" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:TestCase.Test_script@7283d3eb]" started-at="2026-08-16T08:53:04 IST" name="setup" finished-at="2026-08-16T08:53:12 IST" duration-ms="8043" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -16,14 +28,19 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[chrome]]>
+                <![CDATA[edge]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[headless]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="Login(java.lang.String,java.lang.String)[pri:0, instance:TestCase.Test_script@5aa9e4eb]" started-at="2026-08-15T12:39:27 IST" name="Login" data-provider="testdata" finished-at="2026-08-15T12:39:50 IST" duration-ms="22908" status="PASS">
+        <test-method signature="LogintoApplication(java.lang.String,java.lang.String)[pri:0, instance:TestCase.Test_script@7283d3eb]" started-at="2026-08-16T08:53:12 IST" name="LogintoApplication" data-provider="testdata" finished-at="2026-08-16T08:53:25 IST" duration-ms="12787" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -37,13 +54,70 @@
             </param>
           </params>
           <reporter-output>
+            <line>
+              <![CDATA[logs are onTestSuccess: LogintoApplication]]>
+            </line>
+            <line>
+              <![CDATA[<a href="C:\Users\Dell\eclipse-workspace_TestNG_automation\TestNG_auto_framework\screenshots">Test Result</a>]]>
+            </line>
           </reporter-output>
-        </test-method> <!-- Login -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:TestCase.Test_script@5aa9e4eb]" started-at="2026-08-15T12:39:50 IST" name="teardown" finished-at="2026-08-15T12:39:51 IST" duration-ms="538" status="PASS">
+        </test-method> <!-- LogintoApplication -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:TestCase.Test_script@7283d3eb]" started-at="2026-08-16T08:53:25 IST" name="teardown" finished-at="2026-08-16T08:53:27 IST" duration-ms="2797" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
       </class> <!-- TestCase.Test_script -->
     </test> <!-- Test1 -->
+    <test started-at="2026-08-16T08:53:02 IST" name="Test2" finished-at="2026-08-16T08:53:31 IST" duration-ms="29193">
+      <class name="TestCase.Test_script">
+        <test-method is-config="true" signature="setup(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:TestCase.Test_script@895e367]" started-at="2026-08-16T08:53:04 IST" name="setup" finished-at="2026-08-16T08:53:15 IST" duration-ms="10932" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[prod]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[headless]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="LogintoApplication(java.lang.String,java.lang.String)[pri:0, instance:TestCase.Test_script@895e367]" started-at="2026-08-16T08:53:15 IST" name="LogintoApplication" data-provider="testdata" finished-at="2026-08-16T08:53:29 IST" duration-ms="14008" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[shwetasutar041@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Ranipatange@223]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+            <line>
+              <![CDATA[logs are onTestSuccess: LogintoApplication]]>
+            </line>
+            <line>
+              <![CDATA[<a href="C:\Users\Dell\eclipse-workspace_TestNG_automation\TestNG_auto_framework\screenshots">Test Result</a>]]>
+            </line>
+          </reporter-output>
+        </test-method> <!-- LogintoApplication -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:TestCase.Test_script@895e367]" started-at="2026-08-16T08:53:29 IST" name="teardown" finished-at="2026-08-16T08:53:31 IST" duration-ms="2572" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- TestCase.Test_script -->
+    </test> <!-- Test2 -->
   </suite> <!-- Suite -->
 </testng-results>

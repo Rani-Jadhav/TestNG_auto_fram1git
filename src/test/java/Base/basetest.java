@@ -3,6 +3,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -17,8 +19,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-
-
+import Utilities.ExtentReportManager;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class basetest 
@@ -62,12 +63,16 @@ public class basetest
 	3. Default value
 	   qa / chrome
 	  */
+	 protected Logger log =LogManager.getLogger(this.getClass());
 	 
 	 @BeforeMethod
-	 @Parameters({"envpara", "browserpara"})    
-	  public  void setup( @Optional String env1, @Optional String browser1) throws IOException //pass broswer if added @parametr
+	 @Parameters({"envpara", "browserpara","headlesspara"})    
+	  public  void setup( @Optional String env1, @Optional String browser1, @Optional String head1) throws IOException //pass broswer if added @parametr
 , InterruptedException
 	  {
+		 
+		 
+		 ExtentReportManager.getReport();
 		 
 		 System.out.println( "START Thread = " + Thread.currentThread().getId());
 		  if(getDriver() ==null)
@@ -107,12 +112,18 @@ public class basetest
 		  
 		  
 		  String executionMode = System.getProperty("executionMode");
-
+		  
+		  if(executionMode == null)
+		  {
+		      executionMode = head1;   // from xml parameter
+		  }
+		  
 		  if(executionMode == null)
 		  {
 		      executionMode = "headed";
 		  }
-
+		  
+		
 		  
 		  
 		  String browser = System.getProperty("browser");
@@ -126,12 +137,17 @@ public class basetest
 		      browser = browser1;   // from testng.xml
 		  }
 		  
+		  
+		  
 		  //defalt 
 		  if(browser == null)
 		  {
 		      browser = prop.getProperty("browser");
 		  }
 //-------------------------------------------------------------------------
+		  
+		 
+		  
 		  if(browser.equalsIgnoreCase("chrome"))
 		  {
 			  

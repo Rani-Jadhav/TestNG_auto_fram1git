@@ -12,27 +12,36 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import Base.basetest;
+import Utilities.ExtentReportManager;
 import Utilities.readXLSdata;
 import Utilities.screenshot;
 import Utilities.waitutiles;
+import common.IListener;
 
+@Listeners (common.IListener.class)
 public class Test_script extends basetest
 {
 	@Test (dataProviderClass = readXLSdata.class, dataProvider="testdata")
-	public  void Login(String username, String password) throws InterruptedException, IOException 
+	public  void LogintoApplication(String username, String password) throws InterruptedException, IOException 
 	{
-		Thread.sleep(5000);		
+		ExtentReportManager.info("Browser launched");  //extent report
+		log.info("Login started");  //log4j
+		
+		
+				Thread.sleep(5000);		
 		getDriver().findElement(By.xpath(loc.getProperty("login_butn"))).click();
 		
 
 
     WebElement email = waitutiles.waitForElement(getDriver(), By.id(loc.getProperty("email")));
    email.sendKeys(username);
+   ExtentReportManager.info("Email entered");          //extent report 
    
-   Thread.sleep(5000);
+   Thread.sleep(1000);
     WebElement nxt = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("nxt")));
     nxt.click();
     System.out.println("Current URL = " + getDriver().getCurrentUrl());
@@ -42,14 +51,18 @@ public class Test_script extends basetest
     	        .contains("password"));
     screenshot.captureScreenshot();
     Thread.sleep(2000);
+    ExtentReportManager.info("next button cliked");          //extent report 
+    log.error("Element not found");  //log4j
+    
     
     WebElement pas = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("pass")));
     pas.sendKeys(password);
+    ExtentReportManager.pass("Login Successful");         //extent report 
    
     WebElement signin = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("signin_but")));
     signin.click();
     
-    Thread.sleep(5000);
+    Thread.sleep(2000);
 
 //    System.out.println("After Login URL = " + getDriver().getCurrentUrl());
 //    System.out.println("After Login Title = " + getDriver().getTitle());

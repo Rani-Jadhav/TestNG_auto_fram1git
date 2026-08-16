@@ -15,7 +15,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
 import Base.basetest;
-import Utilities.extendreport;
+import Utilities.ExtentReportManager;
 import Utilities.screenshot;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -25,37 +25,14 @@ public class asserrtion_soft_hard extends basetest{
 	{
 		
 		
-		ExtentReports report = extendreport.getReport();
-
-        ExtentTest test = report.createTest("Login Test");
-
-        test.info("Browser Launched");
-
-		
-//		WebDriverManager.chromedriver().setup();
-//		WebDriver driver=new ChromeDriver();
-//		driver.get("https://www.ebay.com/");
-//		driver.manage().window().maximize();
-		
-		
-		
-		//hard assert
-//		String expTitle="Electronics, Cars, Fashion, Collectibles & More | eBay";
-//		String actTitle=driver.getTitle();
-//		System.out.println("step1");
-//		Assert.assertEquals(actTitle, expTitle, "successfull title");
-//		System.out.println("step2");
+//		ExtentReports report = ExtentReportManager.getReport();
 //		
-//		String extvalue="hidden";
-//		String actvalue=driver.findElement(By.xpath("//input[@type='hidden']")).getAttribute("type");
-//		System.out.println("value is: "+actvalue);
-//		Assert.assertEquals(actvalue, extvalue, "successfull value");
-//		System.out.println("step3");
-		 test.info("Application Opened");
+//        ExtentTest test = report.createTest("Login Test");
+//
+//        test.info("Browser Launched");
+//        test.info("Application Opened");
+//        test.pass("Login Successful");
 
-		  test.pass("Login Successful");
-
-	       
 		
 		//soft assert
 		SoftAssert softass=new SoftAssert();
@@ -84,7 +61,7 @@ public class asserrtion_soft_hard extends basetest{
 		
 		softass.assertAll();
 		Thread.sleep(10000);
-		 report.flush();
+		 //report.flush();
 		
 		
 	}
