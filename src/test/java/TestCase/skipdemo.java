@@ -20,12 +20,12 @@ public class skipdemo {
 //		
 //	}
 //	
-//	@Test
-//	public void skip3() {
-//		
-//		System.out.println("skipped3 TC  forcfull with exception");
-//		throw new SkipException("skipped skip3");
-//	}
+	@Test
+	public void skip3() {
+		
+		System.out.println("skipped3 TC  forcfull with exception");
+		throw new SkipException("skipped skip3");
+	}
 	
 	
 

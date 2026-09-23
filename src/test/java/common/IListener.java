@@ -15,7 +15,7 @@ import com.aventstack.extentreports.ExtentTest;
 import Utilities.ExtentReportManager;
 import Utilities.screenshot;
 
-public class IListener extends screenshot implements ITestListener{
+public class IListener  extends screenshot implements ITestListener{
 
   
 	 ExtentReports extent = ExtentReportManager.getReport();
@@ -48,7 +48,7 @@ public class IListener extends screenshot implements ITestListener{
 		Reporter.log("logs are onTestFailure: " +result.getName());
 		
 		ExtentReportManager.fail(result.getThrowable().getMessage());  //extent report
-		log.error("Element not found");  //log4j
+		//log.error("Element not found");  //log4j
 		
 		
 	}

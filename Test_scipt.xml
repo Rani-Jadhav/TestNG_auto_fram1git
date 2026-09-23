@@ -9,7 +9,7 @@
   <parameter name="envpara" value="qa"></parameter>
   <parameter name="browserpara" value="edge"></parameter>
   <parameter name="headlesspara" value="headless"></parameter>
-    <classes>
+    <classes><!---->
       <class name="TestCase.Test_script"/>
     </classes>
   </test> <!-- Test -->

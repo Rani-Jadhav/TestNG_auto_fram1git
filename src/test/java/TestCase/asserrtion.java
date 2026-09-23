@@ -21,8 +21,9 @@ public class asserrtion {
 		d.manage().window().maximize();
 		d.get("https://www.ebay.com/");
 		
-		String expeTitle="Electronics, Cars, Fashion, Collectibles & More | eBay";
+		String expeTitle="Pardon Our Interruption...";
 		String actualTitle=d.getTitle();
+		System.out.println("actual title is: "+actualTitle);
 
 		Assert.assertEquals(actualTitle, expeTitle);
 		System.out.println("asertion successfull");

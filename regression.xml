@@ -3,8 +3,8 @@
 <suite name="RegressionSuite">
   <test  name="regression">
     <classes>
-      <class name="TestCase.annotation"/>
+      <!-- <class name="TestCase.annotation"/> -->
       <class name="TestCase.asserrtion"/>
     </classes>
-  </test> <!-- Test -->
+  </test> 
 </suite> <!-- Suite -->

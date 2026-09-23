@@ -64,7 +64,7 @@ public class readXLSdata {
 
         Object[][] data = new Object[totalrow][totalcall];
         DataFormatter df = new DataFormatter();  //DataFormatter is an Apache POI class used to read Excel cell values as displayed in Excel.
-                                                 //It converts cell data into String format safely.
+                                                 //It converts cell data into String format safely,reads the Excel cell and converts it into a String representation.
 
         for (int i = 1; i <= totalrow; i++) {
             Row row = sheet.getRow(i);

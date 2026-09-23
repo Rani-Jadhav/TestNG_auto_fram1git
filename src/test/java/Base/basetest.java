@@ -13,8 +13,10 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
@@ -25,11 +27,12 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class basetest 
 {
 	// public static WebDriver driver; 
-	 public  Properties prop=new Properties();
-	 public  Properties loc=new Properties();
+	 public  static Properties prop=new Properties();
+	 public  static Properties loc=new Properties();
 	 public  FileReader fr;
 	 public  FileReader fr1;
 	 public  String env; 
+	 protected Logger log ;
 	 
 	// ThreadLocal driver for parallel execution   //for te paaller execution we are using this 2 lines and updating getDriver() method everywhere instead of d
 	 public static ThreadLocal<WebDriver> tlDriver = new ThreadLocal<>();
@@ -63,17 +66,35 @@ public class basetest
 	3. Default value
 	   qa / chrome
 	  */
-	 protected Logger log =LogManager.getLogger(this.getClass());
 	 
-	 @BeforeMethod
+	 
+	 
+	 
+	 
+	 @BeforeSuite
+	 public void beforeSuite() throws IOException
+	 {
+		 ExtentReportManager.getReport();
+		 
+		 fr1 = new FileReader(System.getProperty("user.dir")+ "\\src\\test\\resources\\configfiles\\locatores.properties");
+         loc.load(fr1);
+         Logger log =LogManager.getLogger(this.getClass());
+	 }
+	 /* we use beforemethod and aftermethod in selenium and use beforclass in apis
+	  * cos in selenium if in 1 class suppose 4 @test are there means 4 methods are there and 1 method carete user so and 1 delete user so 1st methods cookies 
+	  * leftover satel will be there which may affect next method so we use before method we give fresh broser 
+	  * so there is no : //No dependency between tests/No leftover state/No cookies/session issues.
+	  * and we use before class cos: in class suppose 4 methods are used then All @tests use:
+	  * same Base URI, Token, Headers, Request Specification These don't change for every test so we use bedore class.
+	 */
+	 
+	 
+	 @BeforeMethod   
 	 @Parameters({"envpara", "browserpara","headlesspara"})    
 	  public  void setup( @Optional String env1, @Optional String browser1, @Optional String head1) throws IOException //pass broswer if added @parametr
 , InterruptedException
 	  {
-		 
-		 
-		 ExtentReportManager.getReport();
-		 
+		
 		 System.out.println( "START Thread = " + Thread.currentThread().getId());
 		  if(getDriver() ==null)
 		  {
@@ -98,10 +119,10 @@ public class basetest
           // Loads config-qa.properties / config-dev.properties / config-uat.properties
           fr = new FileReader(System.getProperty("user.dir")+ "\\src\\test\\resources\\configfiles\\config-"+ env + ".properties");
 
-          fr1 = new FileReader(System.getProperty("user.dir")+ "\\src\\test\\resources\\configfiles\\locatores.properties");
+         // fr1 = new FileReader(System.getProperty("user.dir")+ "\\src\\test\\resources\\configfiles\\locatores.properties");
 
           prop.load(fr);
-          loc.load(fr1);
+          //loc.load(fr1);
           
           System.out.println("browser key = " + prop.getProperty("browser"));
           System.out.println("All properties = " + prop);
@@ -118,6 +139,7 @@ public class basetest
 		      executionMode = head1;   // from xml parameter
 		  }
 		  
+		  //default
 		  if(executionMode == null)
 		  {
 		      executionMode = "headed";
@@ -234,9 +256,20 @@ public class basetest
 		      getDriver().quit();
 		      tlDriver.remove();
 		  }
-		  prop.clear();
-		  loc.clear();
+		  //prop.clear();
+		  //loc.clear();
 		 
           System.out.println("logout successfull");
 	  }
+	  
+	  @AfterSuite
+	  public void afterSuite()
+	  {
+	      ExtentReportManager.getReport();
+
+	      prop.clear();
+	      loc.clear();
+	      System.out.println("logout .property files successfully");
+	  }
+	  
 }

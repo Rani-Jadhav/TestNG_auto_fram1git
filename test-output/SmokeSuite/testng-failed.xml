@@ -3,6 +3,7 @@
 <suite name="Failed suite [SmokeSuite]" guice-stage="DEVELOPMENT">
   <listeners>
     <listener class-name="common.IListener"/>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
   </listeners>
   <test thread-count="5" name="SmokeTest(failed)">
     <classes>
@@ -11,6 +12,8 @@
           <include name="teardown"/>
           <include name="assSoftHard"/>
           <include name="setup"/>
+          <include name="afterSuite"/>
+          <include name="beforeSuite"/>
         </methods>
       </class> <!-- TestCase.asserrtion_soft_hard -->
     </classes>

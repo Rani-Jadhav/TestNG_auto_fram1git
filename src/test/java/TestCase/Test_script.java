@@ -22,42 +22,39 @@ import Utilities.screenshot;
 import Utilities.waitutiles;
 import common.IListener;
 
-@Listeners (common.IListener.class)
+//@Listeners (common.IListener.class)
 public class Test_script extends basetest
 {
 	@Test (dataProviderClass = readXLSdata.class, dataProvider="testdata")
 	public  void LogintoApplication(String username, String password) throws InterruptedException, IOException 
 	{
-		ExtentReportManager.info("Browser launched");  //extent report
+		//ExtentReportManager.info("Browser launched");  //extent report
 		log.info("Login started");  //log4j
 		
 		
-				Thread.sleep(5000);		
+		Thread.sleep(5000);		
 		getDriver().findElement(By.xpath(loc.getProperty("login_butn"))).click();
 		
 
-
     WebElement email = waitutiles.waitForElement(getDriver(), By.id(loc.getProperty("email")));
    email.sendKeys(username);
-   ExtentReportManager.info("Email entered");          //extent report 
+   //ExtentReportManager.info("Email entered");          //extent report 
    
    Thread.sleep(1000);
     WebElement nxt = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("nxt")));
     nxt.click();
     System.out.println("Current URL = " + getDriver().getCurrentUrl());
     System.out.println("Page title = " + getDriver().getTitle());
-    System.out.println(
-    	    getDriver().getPageSource()
-    	        .contains("password"));
-    screenshot.captureScreenshot();
+    System.out.println(getDriver().getPageSource().contains("password"));
+    //screenshot.captureScreenshot();
     Thread.sleep(2000);
-    ExtentReportManager.info("next button cliked");          //extent report 
-    log.error("Element not found");  //log4j
+    //ExtentReportManager.info("next button cliked");          //extent report 
+    //log.error("Element not found");  //log4j
     
     
     WebElement pas = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("pass")));
     pas.sendKeys(password);
-    ExtentReportManager.pass("Login Successful");         //extent report 
+   // ExtentReportManager.pass("Login Successful");         //extent report 
    
     WebElement signin = waitutiles.waitForElement(getDriver(),By.xpath(loc.getProperty("signin_but")));
     signin.click();
@@ -83,4 +80,39 @@ public class Test_script extends basetest
 //	}
 				
 }
+
+
+/*
+ TestNG
+  ↓
+@Test
+  ↓
+dataProvider = "testdata"
+  ↓
+readXLSdata.class
+  ↓
+@DataProvider(name="testdata")
+  ↓
+getdata()
+  ↓
+testdatssheet.xlsx
+  ↓
+FileInputStream
+  ↓
+XSSFWorkbook
+  ↓
+getSheet("excelsheet")
+  ↓
+Read rows/cells
+  ↓
+DataFormatter
+  ↓
+Object[][]
+  ↓
+TestNG
+  ↓
+username + password
+  ↓
+LogintoApplication(username, password)
+ */
 	
