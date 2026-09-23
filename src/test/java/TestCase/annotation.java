@@ -20,6 +20,7 @@ public class annotation {
     public void DBdisconnected() {
 		
 		System.out.println("DBdisconnected");
+		System.out.println("ok");
 	}
     
 	
